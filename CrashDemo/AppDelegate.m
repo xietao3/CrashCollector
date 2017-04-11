@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #include <signal.h>
 #include <execinfo.h>
-#import "AppDelegate+CollectCrash.h"
 
 @interface AppDelegate ()
 
