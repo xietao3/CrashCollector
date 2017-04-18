@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "FDLockMonitor.h"
+#import "BSBacktraceLogger.h"
 
 @interface ViewController ()
 
@@ -18,6 +20,7 @@
     [super viewDidLoad];
 //    NSMutableArray *array = [NSMutableArray array];
 //    [array addObject:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -34,6 +37,13 @@
 }
 
 - (IBAction)fff:(id)sender {
+    static int i = 0;
+    if (i == 19999) {
+        return;
+    }
+    i++;
+    NSLog(@"%d",i);
+    [self fff:nil];
     
 }
 
@@ -72,6 +82,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // doSomething
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #include <signal.h>
 #include <execinfo.h>
+#import "FDLockMonitor.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self collectCrash];
+    [FDLockMonitor shareMonitor];
+
     return YES;
 }
 

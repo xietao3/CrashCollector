@@ -13,6 +13,9 @@
 		93368B2C1E9CDEAA00088F22 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93368B2B1E9CDEAA00088F22 /* DetailViewController.m */; };
 		93368B2F1E9CDEBD00088F22 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93368B2E1E9CDEBD00088F22 /* CartViewController.m */; };
 		93368B321E9CE65800088F22 /* UIControl+CollectEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93368B311E9CE65800088F22 /* UIControl+CollectEvent.m */; };
+		93720F1F1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93720F1E1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m */; };
+		937ABCAF1EA5A8A300502295 /* FDLockMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 937ABCAE1EA5A8A300502295 /* FDLockMonitor.m */; };
+		937ABCB31EA5A98400502295 /* BSBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 937ABCB21EA5A98400502295 /* BSBacktraceLogger.m */; };
 		938D033B1E9B2A1F00A1E0AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 938D033A1E9B2A1F00A1E0AF /* main.m */; };
 		938D033E1E9B2A1F00A1E0AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 938D033D1E9B2A1F00A1E0AF /* AppDelegate.m */; };
 		938D03411E9B2A1F00A1E0AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938D03401E9B2A1F00A1E0AF /* ViewController.m */; };
@@ -54,6 +57,12 @@
 		93368B301E9CE65800088F22 /* UIControl+CollectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+CollectEvent.h"; sourceTree = "<group>"; };
 		93368B311E9CE65800088F22 /* UIControl+CollectEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+CollectEvent.m"; sourceTree = "<group>"; };
 		93368B331E9CE7CD00088F22 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		93720F1D1E9E15D900BF2CEE /* UIScrollView+CollectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CollectEvent.h"; sourceTree = "<group>"; };
+		93720F1E1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CollectEvent.m"; sourceTree = "<group>"; };
+		937ABCAD1EA5A8A300502295 /* FDLockMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDLockMonitor.h; sourceTree = "<group>"; };
+		937ABCAE1EA5A8A300502295 /* FDLockMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDLockMonitor.m; sourceTree = "<group>"; };
+		937ABCB11EA5A98400502295 /* BSBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBacktraceLogger.h; sourceTree = "<group>"; };
+		937ABCB21EA5A98400502295 /* BSBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBacktraceLogger.m; sourceTree = "<group>"; };
 		938D03361E9B2A1F00A1E0AF /* CrashDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		938D033A1E9B2A1F00A1E0AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		938D033C1E9B2A1F00A1E0AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,8 +115,29 @@
 				93368B241E9CDE6800088F22 /* UIViewController+CollectEvent.m */,
 				93368B301E9CE65800088F22 /* UIControl+CollectEvent.h */,
 				93368B311E9CE65800088F22 /* UIControl+CollectEvent.m */,
+				93720F1D1E9E15D900BF2CEE /* UIScrollView+CollectEvent.h */,
+				93720F1E1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		937ABCAC1EA5A88100502295 /* LockMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				937ABCAD1EA5A8A300502295 /* FDLockMonitor.h */,
+				937ABCAE1EA5A8A300502295 /* FDLockMonitor.m */,
+				937ABCB01EA5A98400502295 /* BSBacktraceLogger */,
+			);
+			path = LockMonitor;
+			sourceTree = "<group>";
+		};
+		937ABCB01EA5A98400502295 /* BSBacktraceLogger */ = {
+			isa = PBXGroup;
+			children = (
+				937ABCB11EA5A98400502295 /* BSBacktraceLogger.h */,
+				937ABCB21EA5A98400502295 /* BSBacktraceLogger.m */,
+			);
+			path = BSBacktraceLogger;
 			sourceTree = "<group>";
 		};
 		938D032D1E9B2A1F00A1E0AF = {
@@ -133,6 +163,7 @@
 		938D03381E9B2A1F00A1E0AF /* CrashDemo */ = {
 			isa = PBXGroup;
 			children = (
+				937ABCAC1EA5A88100502295 /* LockMonitor */,
 				93368B201E9CDE6800088F22 /* Collection */,
 				938D033C1E9B2A1F00A1E0AF /* AppDelegate.h */,
 				938D033D1E9B2A1F00A1E0AF /* AppDelegate.m */,
@@ -314,13 +345,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937ABCAF1EA5A8A300502295 /* FDLockMonitor.m in Sources */,
 				93368B2F1E9CDEBD00088F22 /* CartViewController.m in Sources */,
 				938D03411E9B2A1F00A1E0AF /* ViewController.m in Sources */,
+				937ABCB31EA5A98400502295 /* BSBacktraceLogger.m in Sources */,
 				93368B321E9CE65800088F22 /* UIControl+CollectEvent.m in Sources */,
 				938D033E1E9B2A1F00A1E0AF /* AppDelegate.m in Sources */,
 				93368B291E9CDE9900088F22 /* ListViewController.m in Sources */,
 				938D033B1E9B2A1F00A1E0AF /* main.m in Sources */,
 				93368B261E9CDE6800088F22 /* UIViewController+CollectEvent.m in Sources */,
+				93720F1F1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m in Sources */,
 				93368B251E9CDE6800088F22 /* AppDelegate+CollectCrash.m in Sources */,
 				93368B2C1E9CDEAA00088F22 /* DetailViewController.m in Sources */,
 			);
