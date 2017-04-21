@@ -25,8 +25,6 @@
 
 
 
-
-
 //- (void)getCurrentRunLoopMode{
 //    // 每次定时器触发, 都去查看当前的RunLoop的运行mode
 //    NSLog(@"%@", [NSRunLoop currentRunLoop].currentMode);
@@ -42,7 +40,7 @@
 }
 */
 - (IBAction)listButtonAction:(id)sender {
-    sleep(3);
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)listSwitchAction:(id)sender {
@@ -54,6 +52,35 @@
     NSLog(@"%@",arr[1]);
 }
 
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellIdentifier = @"cellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    }
+    cell.textLabel.text = @"333";
+    
+    return cell;
+}
+
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSLog(@"list did drag");
+}
 
 
 

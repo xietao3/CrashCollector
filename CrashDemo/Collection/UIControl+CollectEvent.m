@@ -7,8 +7,8 @@
 //
 
 #import "UIControl+CollectEvent.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
+#import "RuntimeHelper.h"
+#import "CrashCollect.h"
 
 @implementation UIControl (CollectEvent)
 + (void)load {
@@ -16,7 +16,7 @@
     dispatch_once(&onceToken, ^{
         
         //创建新的sendAction:to:forEvent:方法
-        [self methodSwap:[self class] firstMethod:@selector(sendAction:to:forEvent:) secondMethod:@selector(fd_sendAction:to:forEvent:)];
+        [self sel_exchangeFirstSel:@selector(sendAction:to:forEvent:) secondSel:@selector(fd_sendAction:to:forEvent:)];
 
     });
 
@@ -24,7 +24,7 @@
 
 
 - (void)fd_sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
-    NSLog(@"%@ send action:%@ to:%@ frame:(x:%.2f y:%.2f w:%.2f h:%.2f)",
+    CCLog(@"%@ send action:%@ to:%@ frame:(x:%.2f y:%.2f w:%.2f h:%.2f)",
           [self class],
           NSStringFromSelector(action),
           NSStringFromClass([target class]),
@@ -36,9 +36,4 @@
 }
 
 
-+ (void)methodSwap:(Class)class firstMethod:(SEL)method1 secondMethod:(SEL)method2 {
-    Method firstMethod = class_getInstanceMethod(class, method1);
-    Method secondMethod = class_getInstanceMethod(class, method2);
-    method_exchangeImplementations(firstMethod, secondMethod);
-}
 @end

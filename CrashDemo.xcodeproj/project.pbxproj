@@ -14,6 +14,8 @@
 		93368B2F1E9CDEBD00088F22 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93368B2E1E9CDEBD00088F22 /* CartViewController.m */; };
 		93368B321E9CE65800088F22 /* UIControl+CollectEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93368B311E9CE65800088F22 /* UIControl+CollectEvent.m */; };
 		93720F1F1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93720F1E1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m */; };
+		93722F221EA85A4C00C54CF5 /* NSObject+RuntimeMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93722F211EA85A4C00C54CF5 /* NSObject+RuntimeMethodHelper.m */; };
+		93722F261EA8653D00C54CF5 /* UITableView+CollectEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93722F251EA8653D00C54CF5 /* UITableView+CollectEvent.m */; };
 		937ABCAF1EA5A8A300502295 /* FDLockMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 937ABCAE1EA5A8A300502295 /* FDLockMonitor.m */; };
 		937ABCB31EA5A98400502295 /* BSBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 937ABCB21EA5A98400502295 /* BSBacktraceLogger.m */; };
 		938D033B1E9B2A1F00A1E0AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 938D033A1E9B2A1F00A1E0AF /* main.m */; };
@@ -59,6 +61,12 @@
 		93368B331E9CE7CD00088F22 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		93720F1D1E9E15D900BF2CEE /* UIScrollView+CollectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CollectEvent.h"; sourceTree = "<group>"; };
 		93720F1E1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CollectEvent.m"; sourceTree = "<group>"; };
+		93722F201EA85A4C00C54CF5 /* NSObject+RuntimeMethodHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeMethodHelper.h"; sourceTree = "<group>"; };
+		93722F211EA85A4C00C54CF5 /* NSObject+RuntimeMethodHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeMethodHelper.m"; sourceTree = "<group>"; };
+		93722F231EA860D300C54CF5 /* RuntimeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeHelper.h; sourceTree = "<group>"; };
+		93722F241EA8653D00C54CF5 /* UITableView+CollectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CollectEvent.h"; sourceTree = "<group>"; };
+		93722F251EA8653D00C54CF5 /* UITableView+CollectEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CollectEvent.m"; sourceTree = "<group>"; };
+		93722F271EA8C5D600C54CF5 /* CrashCollect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashCollect.h; sourceTree = "<group>"; };
 		937ABCAD1EA5A8A300502295 /* FDLockMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDLockMonitor.h; sourceTree = "<group>"; };
 		937ABCAE1EA5A8A300502295 /* FDLockMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDLockMonitor.m; sourceTree = "<group>"; };
 		937ABCB11EA5A98400502295 /* BSBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBacktraceLogger.h; sourceTree = "<group>"; };
@@ -109,6 +117,7 @@
 		93368B201E9CDE6800088F22 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				93722F271EA8C5D600C54CF5 /* CrashCollect.h */,
 				93368B211E9CDE6800088F22 /* AppDelegate+CollectCrash.h */,
 				93368B221E9CDE6800088F22 /* AppDelegate+CollectCrash.m */,
 				93368B231E9CDE6800088F22 /* UIViewController+CollectEvent.h */,
@@ -117,8 +126,21 @@
 				93368B311E9CE65800088F22 /* UIControl+CollectEvent.m */,
 				93720F1D1E9E15D900BF2CEE /* UIScrollView+CollectEvent.h */,
 				93720F1E1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m */,
+				93722F241EA8653D00C54CF5 /* UITableView+CollectEvent.h */,
+				93722F251EA8653D00C54CF5 /* UITableView+CollectEvent.m */,
+				93722F191EA8573000C54CF5 /* RuntimeHelper */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		93722F191EA8573000C54CF5 /* RuntimeHelper */ = {
+			isa = PBXGroup;
+			children = (
+				93722F231EA860D300C54CF5 /* RuntimeHelper.h */,
+				93722F201EA85A4C00C54CF5 /* NSObject+RuntimeMethodHelper.h */,
+				93722F211EA85A4C00C54CF5 /* NSObject+RuntimeMethodHelper.m */,
+			);
+			path = RuntimeHelper;
 			sourceTree = "<group>";
 		};
 		937ABCAC1EA5A88100502295 /* LockMonitor */ = {
@@ -279,6 +301,7 @@
 				TargetAttributes = {
 					938D03351E9B2A1F00A1E0AF = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CVQ4KC2R64;
 						ProvisioningStyle = Automatic;
 					};
 					938D034E1E9B2A1F00A1E0AF = {
@@ -350,12 +373,14 @@
 				938D03411E9B2A1F00A1E0AF /* ViewController.m in Sources */,
 				937ABCB31EA5A98400502295 /* BSBacktraceLogger.m in Sources */,
 				93368B321E9CE65800088F22 /* UIControl+CollectEvent.m in Sources */,
+				93722F261EA8653D00C54CF5 /* UITableView+CollectEvent.m in Sources */,
 				938D033E1E9B2A1F00A1E0AF /* AppDelegate.m in Sources */,
 				93368B291E9CDE9900088F22 /* ListViewController.m in Sources */,
 				938D033B1E9B2A1F00A1E0AF /* main.m in Sources */,
 				93368B261E9CDE6800088F22 /* UIViewController+CollectEvent.m in Sources */,
 				93720F1F1E9E15D900BF2CEE /* UIScrollView+CollectEvent.m in Sources */,
 				93368B251E9CDE6800088F22 /* AppDelegate+CollectCrash.m in Sources */,
+				93722F221EA85A4C00C54CF5 /* NSObject+RuntimeMethodHelper.m in Sources */,
 				93368B2C1E9CDEAA00088F22 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,7 +460,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -483,7 +508,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -503,8 +528,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CVQ4KC2R64;
 				GCC_PREFIX_HEADER = CrashDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = CrashDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xietao3.CrashDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,8 +542,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CVQ4KC2R64;
 				GCC_PREFIX_HEADER = CrashDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = CrashDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xietao3.CrashDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

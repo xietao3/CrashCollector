@@ -10,8 +10,13 @@
 #import "FDLockMonitor.h"
 #import "BSBacktraceLogger.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (weak, nonatomic) IBOutlet UIScrollView *mScrollView;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentButton;
+
+@property (nonatomic, strong) UIButton *tempButton;
 @end
 
 @implementation ViewController
@@ -20,12 +25,12 @@
     [super viewDidLoad];
 //    NSMutableArray *array = [NSMutableArray array];
 //    [array addObject:nil];
+    self.mScrollView.contentSize = CGSizeMake(300, 300);
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
 }
 
 
@@ -33,24 +38,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)ggg:(id)sender {
-}
 
-- (IBAction)fff:(id)sender {
-    static int i = 0;
-    if (i == 19999) {
-        return;
-    }
-    i++;
-    NSLog(@"%d",i);
-    [self fff:nil];
+
+- (IBAction)ggg:(id)sender {
     
 }
 
-- (IBAction)ccc:(id)sender {
+- (IBAction)fff:(id)sender {
+    static NSInteger i = 0;
+    while (1) {
+        if (i == 19999) {
+            return;
+        }
+        i++;
+        NSLog(@"%ld",i);
+    }
+}
 
+- (IBAction)ccc:(id)sender {
+    UIButton *btn = [[UIButton alloc] init];
+    
 }
 - (IBAction)eeee:(id)sender {
+}
+
+- (IBAction)segmentClickAction:(id)sender {
+    NSLog(@"segmentClickAction:xietao");
 }
 
 #pragma mark - UITableViewDataSource
@@ -78,14 +91,10 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // doSomething
-}
+
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    
+
 }
 
 @end

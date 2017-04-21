@@ -7,38 +7,47 @@
 //
 
 #import "UIViewController+CollectEvent.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
+#import "RuntimeHelper.h"
+#import "CrashCollect.h"
+
 
 @implementation UIViewController (CollectEvent)
+
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        //创建新的viewWillAppear方法
-        [self methodSwap:[self class] firstMethod:@selector(viewWillAppear:) secondMethod:@selector(fd_viewWillAppear:)];
-        //创建新的viewDidAppear方法
-        [self methodSwap:[self class] firstMethod:@selector(viewDidAppear:) secondMethod:@selector(fd_viewDidAppear:)];
-        
+        // 替换方法
+        [self sel_exchangeFirstSel:@selector(viewDidLoad) secondSel:@selector(fd_viewDidLoad)];
+        [self sel_exchangeFirstSel:@selector(viewWillAppear:) secondSel:@selector(fd_viewWillAppear:)];
+        [self sel_exchangeFirstSel:@selector(viewDidAppear:) secondSel:@selector(fd_viewDidAppear:)];
+
     });
+}
+
+- (void)fd_viewDidLoad {
+    CCLog(@"%@ viewDidLoad",NSStringFromClass([self class]));
+    [self fd_viewDidLoad];
 }
 
 //新的viewWillAppear方法
 - (void)fd_viewWillAppear:(BOOL)animated {
+    CCLog(@"%@ viewWillAppear",NSStringFromClass([self class]));
     [self fd_viewWillAppear:animated];
-    
-    NSLog(@"%@ viewWillAppear",NSStringFromClass([self class]));
 }
 
 //新的viewWillDisappear方法
 - (void)fd_viewDidAppear:(BOOL)animated {
+    CCLog(@"%@ viewDidAppear",NSStringFromClass([self class]));
     [self fd_viewDidAppear:animated];
-    NSLog(@"%@ viewDidAppear",NSStringFromClass([self class]));
 }
 
-+ (void)methodSwap:(Class)class firstMethod:(SEL)method1 secondMethod:(SEL)method2 {
-    Method firstMethod = class_getInstanceMethod(class, method1);
-    Method secondMethod = class_getInstanceMethod(class, method2);
-    method_exchangeImplementations(firstMethod, secondMethod);
-}
+
+
+//- (void)fd_tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [self fd_tableView:tableView didSelectRowAtIndexPath:indexPath];
+//    CCLog(@"%@ tableView:didSelectRowAtIndexPath:",NSStringFromClass([self class]));
+//}
+
+
+
 @end

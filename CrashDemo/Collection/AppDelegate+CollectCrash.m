@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate+CollectCrash.h"
+#import "CrashCollect.h"
 
 @implementation AppDelegate (CollectCrash)
 
@@ -28,8 +29,8 @@
 }
 
 void handleExceptions(NSException *exception) {
-    NSLog(@"xietao3 - exception = %@",exception);
-    NSLog(@"xietao3 - callStackSymbols = %@",[exception callStackSymbols]);
+    CCLog(@"exception = %@",exception);
+    CCLog(@"callStackSymbols = %@",[exception callStackSymbols]);
 }
 
 void signalHandler(int sig) {
