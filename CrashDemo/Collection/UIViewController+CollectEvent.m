@@ -43,11 +43,4 @@
 
 
 
-//- (void)fd_tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [self fd_tableView:tableView didSelectRowAtIndexPath:indexPath];
-//    CCLog(@"%@ tableView:didSelectRowAtIndexPath:",NSStringFromClass([self class]));
-//}
-
-
-
 @end

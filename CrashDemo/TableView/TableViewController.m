@@ -1,34 +1,28 @@
 //
-//  ListViewController.m
+//  TableViewController.m
 //  CrashDemo
 //
-//  Created by xietao on 2017/4/11.
+//  Created by xietao on 2017/4/21.
 //  Copyright © 2017年 xietao3. All rights reserved.
 //
 
-#import "ListViewController.h"
+#import "TableViewController.h"
 
-@interface ListViewController ()
+@interface TableViewController ()
 
 @end
 
-@implementation ListViewController
+@implementation TableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-//- (void)getCurrentRunLoopMode{
-//    // 每次定时器触发, 都去查看当前的RunLoop的运行mode
-//    NSLog(@"%@", [NSRunLoop currentRunLoop].currentMode);
-//}
 
 /*
 #pragma mark - Navigation
@@ -39,18 +33,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)listButtonAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)listSwitchAction:(id)sender {
-    sleep(3);
-}
-
-- (IBAction)indexCrashAction:(id)sender {
-    NSArray *arr = @[];
-    NSLog(@"%@",arr[1]);
-}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -58,7 +40,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -72,19 +54,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
-    cell.textLabel.text = @"333";
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
     return cell;
 }
 
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    NSLog(@"list did drag");
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    // doSomething
 }
-
-
-
-
-
 
 @end

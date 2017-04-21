@@ -7,26 +7,24 @@
 //
 
 #import "ViewController.h"
-#import "FDLockMonitor.h"
-#import "BSBacktraceLogger.h"
+#import "LockViewController.h"
+#import "ScrollViewController.h"
+#import "TableViewController.h"
+#import "ActionViewController.h"
 
 @interface ViewController ()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *mScrollView;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentButton;
-
-@property (nonatomic, strong) UIButton *tempButton;
+@property (nonatomic, strong) NSArray *functionlist;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSMutableArray *array = [NSMutableArray array];
-//    [array addObject:nil];
-    self.mScrollView.contentSize = CGSizeMake(300, 300);
-    
+    self.functionlist = @[@"crash监控",@"卡顿监控",@"页面路径",@"scrollView",@"tableView",@"控件touch监控"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,31 +38,6 @@
 }
 
 
-- (IBAction)ggg:(id)sender {
-    
-}
-
-- (IBAction)fff:(id)sender {
-    static NSInteger i = 0;
-    while (1) {
-        if (i == 19999) {
-            return;
-        }
-        i++;
-        NSLog(@"%ld",i);
-    }
-}
-
-- (IBAction)ccc:(id)sender {
-    UIButton *btn = [[UIButton alloc] init];
-    
-}
-- (IBAction)eeee:(id)sender {
-}
-
-- (IBAction)segmentClickAction:(id)sender {
-    NSLog(@"segmentClickAction:xietao");
-}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -72,7 +45,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return self.functionlist.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -86,15 +59,70 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
-    cell.textLabel.text = @"333";
+    cell.textLabel.text = self.functionlist[indexPath.row];
     
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        // 闪退
+        case 0:
+        {
+            NSArray *arr = @[];
+            NSLog(@"%@",arr[1]);
 
+        }
+            break;
+        // 卡顿
+        case 1:
+        {
+            LockViewController *goVC = [[LockViewController alloc] init];
+            [goVC setTitle:self.functionlist[indexPath.row]];
+            [self.navigationController pushViewController:goVC animated:YES];
+        }
+            break;
+        // 页面路径
+        case 2:
+        {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController *goVC = [storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
+            [goVC setTitle:self.functionlist[indexPath.row]];
+            [self.navigationController pushViewController:goVC animated:YES];
+        }
+            break;
+        // scroll view
+        case 3:
+        {
+            ScrollViewController *goVC = [[ScrollViewController alloc] init];
+            [goVC setTitle:self.functionlist[indexPath.row]];
+            [self.navigationController pushViewController:goVC animated:YES];
+        }
+            break;
+        // table view
+        case 4:
+        {
+            TableViewController *goVC = [[TableViewController alloc] init];
+            [goVC setTitle:self.functionlist[indexPath.row]];
+            [self.navigationController pushViewController:goVC animated:YES];
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+        }
+            break;
+        // 控件touch action
+        case 5:
+        {
+            ActionViewController *goVC = [[ActionViewController alloc] init];
+            [goVC setTitle:self.functionlist[indexPath.row]];
+            [self.navigationController pushViewController:goVC animated:YES];
 
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

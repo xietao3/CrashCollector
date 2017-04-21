@@ -37,6 +37,7 @@ static const NSTimeInterval monitLockTimeInterval = 2.0;
     [self addObserver];
 }
 
+#pragma mark - PrivateMethod
 // 添加一个监听者
 - (void)addObserver {
     
