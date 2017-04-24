@@ -1,6 +1,6 @@
 # CrashCollectionDemo
 收集闪退Demo
--|-
+----- | -----
 |主要功能|备注|
 |crash监控|已完成|
 |卡顿监控|待完善|
