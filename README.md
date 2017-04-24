@@ -10,4 +10,4 @@ scrollView delegate|监听 did draging
 tableView delegate|监听 did selected
 控件touch监控|监听action
 
-[demo](https://github.com/xietao3/CrashCollectionDemo/blob/master/2E740DFD-E9B5-4C94-8351-298F416DDC7D.png?raw=true)
+[demo](https://raw.githubusercontent.com/xietao3/CrashCollectionDemo/master/2E740DFD-E9B5-4C94-8351-298F416DDC7D.png)
