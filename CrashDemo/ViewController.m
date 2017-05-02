@@ -11,6 +11,7 @@
 #import "ScrollViewController.h"
 #import "TableViewController.h"
 #import "ActionViewController.h"
+#import "AvoidCrashViewController.h"
 
 @interface ViewController ()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -24,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.functionlist = @[@"crash监控",@"卡顿监控",@"页面路径",@"scrollView",@"tableView",@"控件touch监控"];
+    self.functionlist = @[@"crash监控",@"卡顿监控",@"页面路径",@"scrollView",@"tableView",@"控件touch监控",@"avoidCrash"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -118,6 +119,14 @@
             [goVC setTitle:self.functionlist[indexPath.row]];
             [self.navigationController pushViewController:goVC animated:YES];
 
+        }
+            break;
+        case 6:
+        {
+            AvoidCrashViewController *goVC = [[AvoidCrashViewController alloc] init];
+            [goVC setTitle:self.functionlist[indexPath.row]];
+            [self.navigationController pushViewController:goVC animated:YES];
+            
         }
             break;
         default:

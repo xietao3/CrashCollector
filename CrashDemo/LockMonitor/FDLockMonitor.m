@@ -115,7 +115,7 @@ static const NSTimeInterval monitLockTimeInterval = 2.0;
     [op2 addDependency:op1];
     [_operationQueue addOperation:op1];
     [_operationQueue addOperation:op2];
-    
+
 }
 
 - (void)appearlockAction {

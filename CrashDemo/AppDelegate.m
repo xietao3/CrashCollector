@@ -21,7 +21,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self collectCrash];
     [FDLockMonitor shareMonitor];
-
     return YES;
 }
 

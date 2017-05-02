@@ -13,5 +13,5 @@
 #import "UIViewController+CollectEvent.h"
 #import "AppDelegate+CollectCrash.h"
 #import "UIScrollView+CollectEvent.h"
-
+#import "NSArray+avoidCrash.h"
 #endif /* PrefixHeader_pch */

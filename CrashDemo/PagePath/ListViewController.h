@@ -6,8 +6,8 @@
 //  Copyright © 2017年 xietao3. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "BaseViewController.h"
 
-@interface ListViewController : ViewController
+@interface ListViewController : BaseViewController
 
 @end

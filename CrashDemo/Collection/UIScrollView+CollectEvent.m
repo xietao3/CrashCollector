@@ -24,28 +24,18 @@
 
 
 - (void)fd_setDelegate:(id<UIScrollViewDelegate>)delegate {
-    if ([self isMemberOfClass:[UIScrollView class]]) {
-        if (![self isContainSel:GET_CLASS_CUSTOM_SEL(@selector(scrollViewWillBeginDragging:),[delegate class]) inClass:[delegate class]]) {
-            [self swizzling_scrollViewWillBeginDragging:delegate];
-        }
-        [self fd_setDelegate:delegate];
-    }else if ([NSStringFromClass([self class]) isEqualToString:@"UITableView"]){
-        if (![self isContainSel:GET_CLASS_CUSTOM_SEL(@selector(scrollViewWillBeginDragging:),[delegate class]) inClass:[delegate class]]) {
-            [self swizzling_scrollViewWillBeginDragging:delegate];
-        }
-        
+    if (![self isContainSel:GET_CLASS_CUSTOM_SEL(@selector(scrollViewWillBeginDragging:),[delegate class]) inClass:[delegate class]]) {
+        [self swizzling_scrollViewWillBeginDragging:delegate];
+    }
+
+    if ([NSStringFromClass([self class]) isEqualToString:@"UITableView"]){
         if (![self isContainSel:GET_CLASS_CUSTOM_SEL(@selector(tableView:didSelectRowAtIndexPath:),[delegate class]) inClass:[delegate class]]) {
             [(UITableView *)self swizzling_tableViewDidSelectRowAtIndexPathInClass:delegate];
         }
 
-        [self fd_setDelegate:delegate];
-    }else{
-        if (![self isContainSel:GET_CLASS_CUSTOM_SEL(@selector(scrollViewWillBeginDragging:),[delegate class]) inClass:[delegate class]]) {
-            [self swizzling_scrollViewWillBeginDragging:delegate];
-        }
-        [self fd_setDelegate:delegate];
-
     }
+    [self fd_setDelegate:delegate];
+
 }
 
 - (void)swizzling_scrollViewWillBeginDragging:(id<UIScrollViewDelegate>)delegate {
