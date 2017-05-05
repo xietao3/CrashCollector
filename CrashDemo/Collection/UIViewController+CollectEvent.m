@@ -24,6 +24,7 @@
     });
 }
 
+//新的viewDidLoad方法
 - (void)fd_viewDidLoad {
     CCLog(@"%@ viewDidLoad",NSStringFromClass([self class]));
     [self fd_viewDidLoad];

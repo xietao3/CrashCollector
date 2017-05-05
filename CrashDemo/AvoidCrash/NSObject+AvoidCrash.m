@@ -8,14 +8,15 @@
 
 #import "NSObject+AvoidCrash.h"
 #import "AvoidCrash.h"
+#import "BSBacktraceLogger.h"
 
 @implementation NSObject (AvoidCrash)
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 - (id)forwardingTargetForSelector:(SEL)aSelector{
     NSString * selectorName = NSStringFromSelector(aSelector);
-    CCLog(@"unrecognized selector crash:%@",selectorName);
-    
+    CCLog(@"unrecognized selector crash:%@:%@",NSStringFromClass([self class]),selectorName);
+    BSLOG_MAIN
     Class class = objc_allocateClassPair(NSClassFromString(@"NSObject"),"AvoidCrashTarget",0);
     class_addMethod(class, aSelector, class_getMethodImplementation([self class], @selector(avoidCrashAction)), "@:");
     id tempObject = [[class alloc] init];
